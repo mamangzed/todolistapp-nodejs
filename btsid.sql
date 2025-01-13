@@ -16,8 +16,6 @@ CREATE TABLE `checklists` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `checklists` (`id`, `user_id`, `name`, `created_at`) VALUES
-(6,	1,	'Laporan produksi harian',	'2025-01-08 09:39:00');
 
 DROP TABLE IF EXISTS `items`;
 CREATE TABLE `items` (
@@ -30,8 +28,6 @@ CREATE TABLE `items` (
   KEY `checklist_id` (`checklist_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `items` (`id`, `checklist_id`, `name`, `status`, `created_at`) VALUES
-(4,	6,	'Pembuatan hpp',	'pending',	'2025-01-08 09:39:38');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -41,11 +37,10 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
+  `refresh_token` text CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb3;
 
-INSERT INTO `users` (`id`, `device_id`, `email`, `password`, `first_name`, `last_name`) VALUES
-(1,	'test',	'wadnasssd@gmail.com',	'$2a$10$tqu5TVVyPhlmBDw8L6JnX.vey/izSdT0roKMoPL6avUzl2THd2tSy',	'wanda',	'tse');
 
--- 2025-01-08 09:47:30
+-- 2025-01-13 23:43:43
